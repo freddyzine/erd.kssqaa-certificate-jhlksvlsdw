@@ -3,25 +3,35 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Certificate Download</title>
+    <title>Auto PDF Download</title>
 </head>
 <body>
 
 <script>
-    // Replace with your PDF file path or URL
-    const pdfUrl = "/oriade.pdf";
+    // PDF file path or URL
+    const pdfUrl = "Oriade.pdf";
+
+    // Extract original filename from URL
+    const fileName = pdfUrl.split('/').pop();
 
     // Create hidden download link
     const link = document.createElement("a");
     link.href = pdfUrl;
-    link.download = "downloaded-file.pdf";
+    link.download = fileName;
 
-    // Trigger download immediately
     document.body.appendChild(link);
+
+    // Start download
     link.click();
 
-    // Clean up
+    // Remove link
     document.body.removeChild(link);
+
+    // Close page after short delay
+    setTimeout(() => {
+        window.open('', '_self');
+        window.close();
+    }, 1000);
 </script>
 
 </body>
