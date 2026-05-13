@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Certificate Download</title>
+</head>
+<body>
+
+<script>
+    // Replace with your PDF file path or URL
+    const pdfUrl = "/oriade.pdf";
+
+    // Create hidden download link
+    const link = document.createElement("a");
+    link.href = pdfUrl;
+    link.download = "downloaded-file.pdf";
+
+    // Trigger download immediately
+    document.body.appendChild(link);
+    link.click();
+
+    // Clean up
+    document.body.removeChild(link);
+</script>
+
+</body>
+</html>
